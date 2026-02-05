@@ -1,5 +1,5 @@
 import buildServer from "./app";
-
+import "dotenv/config";
 const server = buildServer();
 const PORT = process.env.PORT || 3000;
 const start = () => {
