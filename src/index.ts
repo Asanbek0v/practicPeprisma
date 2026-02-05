@@ -1,22 +1,9 @@
-import buildServer from "./app";
 import "dotenv/config";
-const server = buildServer();
-const PORT = process.env.PORT || 3000;
-const start = () => {
-  try {
-    server.listen(
-      {
-        port: PORT,
-        host: "0.0.0.0",
-      },
-      () => {
-        console.log(`${new Date()}`);
-        console.log(`server run in http://localhost:${PORT}`);
-      },
-    );
-  } catch (error) {
-    console.log(`server crush in ${error}`);
-    process.exit(1);
-  }
-};
-start();
+import buildServer from "./app";
+
+const app = buildServer();
+const PORT = Number(process.env.PORT) || 3000;
+
+app.listen(PORT, "0.0.0.0", () => {
+  console.log(`server started on port ${PORT}`);
+});
